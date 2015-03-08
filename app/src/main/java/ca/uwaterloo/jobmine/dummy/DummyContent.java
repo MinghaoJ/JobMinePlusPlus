@@ -35,8 +35,17 @@ public class DummyContent {
         addJob(new Job("000006", "Electrical Systems Design", "Toronto Transit Commission", "Toronto", "Open", "61"));
         addJob(new Job("000007", "Software Developer", "Facebook", "California", "Open", "126"));
         addJob(new Job("000008", "Junior Developer", "CBC", "Toronto", "Open", "52"));
-        addJob(new Job("000009", "Cashier", "McDonalds", "Kitchener", "Open", "1337"));
-        addJob(new Job("000010", "Chef", "Hard Rock Cafe", "Kitchener", "Open", "14"));
+        addJob(new Job("000009", "IT Developer", "TD Bank Group", "Toronto", "Open", "35"));
+        addJob(new Job("000010", "Jr. Technician", "Environment Canada", "Ottawa", "Open", "64"));
+        addJob(new Job("000011", "Web Application Developer", "SociaLabra Inc.", "Toronto", "Open", "52"));
+        addJob(new Job("000012", "Engineering", "Magna Closures Inc", "Bradford", "Open", "62"));
+        addJob(new Job("000013", "Hardware Engineering Internship", "Nest Labs", "Palo Alto, CA, USA", "Open", "73"));
+        addJob(new Job("000014", "Application Programmer", "Ontario Board of Education", "China", "Open", "1"));
+        addJob(new Job("000015", "Game Programmer Intern", "Ubisoft Toronto", "Toronto", "Open", "352"));
+        addJob(new Job("000016", "Technical Support", "Manulife Financial", "Kitchener", "Open", "14"));
+        addJob(new Job("000017", "Quality Assurance Developer", "D2L", "Kitchener", "Open", "52"));
+
+
     }
 
     private static void addJob(Job job) {

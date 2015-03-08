@@ -98,6 +98,34 @@ public class SQLJobDatabaseOperations extends SQLiteOpenHelper {
         return job;
     }*/
 
+    public List<Job> searchJob(String param) {
+        List<Job> searchList = new ArrayList<>();
+
+        SQLiteDatabase dbReader = this.getReadableDatabase();
+        Log.d("Database operations", "Read loader Successful");
+        Cursor cursor = dbReader.rawQuery("SELECT * FROM " + DatabaseListing.TABLE_NAME, null);
+        Log.d("Database operations", "Cursor default Successful");
+        if (cursor.moveToFirst()){
+            do {
+                for (int i = 0; i <= 5 ; i ++ )
+                {
+                    if (cursor.getString(i).contains(param)){
+                        Job job = new Job (cursor.getString(0), cursor.getString(1), cursor.getString(2),
+                                cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                        searchList.add(job);
+                    }
+                }
+
+                Log.d("Database operations", "One job loaded into the array list");
+            } while (cursor.moveToNext());
+        }
+
+        dbReader.close();
+        cursor.close();
+        return searchList;
+
+    }
+
     public List<Job> getJobList() {
 
         List<Job> jobList = new ArrayList<>();
