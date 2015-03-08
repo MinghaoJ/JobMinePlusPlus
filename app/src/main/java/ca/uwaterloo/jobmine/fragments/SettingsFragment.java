@@ -2,6 +2,7 @@ package ca.uwaterloo.jobmine.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,9 @@ import android.view.ViewGroup;
 import ca.uwaterloo.jobmine.R;
 import ca.uwaterloo.jobmine.activities.MainActivity;
 
-public class SettingsFragment extends Fragment implements View.OnClickListener {
+public class SettingsFragment extends PreferenceFragment {
 
-    private static final int SECTION_NUMBER = 1;
+    private static final int SECTION_NUMBER = 10;
 
     public static SettingsFragment newInstance() {
         SettingsFragment fragment = new SettingsFragment();
@@ -30,25 +31,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
-        return view;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(SECTION_NUMBER);
-    }
-
-
-    @Override
-    public void onClick(View v) {
+        addPreferencesFromResource(R.xml.preferences);
     }
 
 }
