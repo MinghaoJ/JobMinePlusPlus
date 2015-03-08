@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import ca.uwaterloo.jobmine.R;
 import ca.uwaterloo.jobmine.data.SQLJobDatabaseOperations;
 import ca.uwaterloo.jobmine.dummy.DummyContent;
@@ -69,6 +71,7 @@ public class MainActivity extends ActionBarActivity
 
     public void addDummyJobs() {
         SQLJobDatabaseOperations DB = new SQLJobDatabaseOperations(ctx);
+        List jobList = DB.getJobList();
         for(Job job : DummyContent.ITEMS) {
             DB.insertJob(job);
         }

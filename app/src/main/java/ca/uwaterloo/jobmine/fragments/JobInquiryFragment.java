@@ -1,8 +1,8 @@
 package ca.uwaterloo.jobmine.fragments;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 
-import ca.uwaterloo.jobmine.adapters.JobListAdapter;
 import ca.uwaterloo.jobmine.R;
 import ca.uwaterloo.jobmine.activities.MainActivity;
+import ca.uwaterloo.jobmine.adapters.JobListAdapter;
+import ca.uwaterloo.jobmine.data.SQLJobDatabaseOperations;
 import ca.uwaterloo.jobmine.dummy.DummyContent;
 
 /**
@@ -30,9 +31,10 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
     private static final int SECTION_NUMBER = 4;
 
     private OnJobSelectedListener mListener;
-
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
+
+    private SQLJobDatabaseOperations db;
 
     public static JobInquiryFragment newInstance() {
         JobInquiryFragment fragment = new JobInquiryFragment();
@@ -49,6 +51,7 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new SQLJobDatabaseOperations(getActivity());
     }
 
     @Override
@@ -62,7 +65,7 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final JobListAdapter adapter = new JobListAdapter(DummyContent.ITEMS);
+                final JobListAdapter adapter = new JobListAdapter(db.getJobList());
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

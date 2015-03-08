@@ -47,6 +47,9 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
         viewHolder.location.setText(jobsData.get(position).getLocation());
     }
 
+
+
+
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;

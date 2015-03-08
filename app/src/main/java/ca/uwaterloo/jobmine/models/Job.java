@@ -4,12 +4,12 @@ package ca.uwaterloo.jobmine.models;
  * Created by Minghao on 2015-03-08.
  */
 public class Job {
-    String id;
-    String title;
-    String employer;
-    String location;
-    String status;
-    String numapps;
+    private String id;
+    private String title;
+    private String employer;
+    private String location;
+    private String status;
+    private String numapps;
 
     public Job(String id, String title, String employer, String location, String status, String numapps) {
         this.id = id;
