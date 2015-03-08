@@ -1,14 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">JobMine++</string>
-
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-
+    <string name="title_section1">Student Profile</string>
+    <string name="title_section2">Documents</string>
+    <string name="title_section3">Job Inquiry</string>
+    <string name="title_section4">Job Shortlist</string>
+    <string name="title_section5">Applications</string>
+    <string name="title_section6">Interviews</string>
+    <string name="title_section7">Rankings</string>
+    <string name="title_section8">Work Report Evaluations</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
-
     <string name="action_settings">Settings</string>
+    <string name="title_activity_student_profile">StudentProfileActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_documents">DocumentsActivity</string>
+    <string name="title_activity_job_inquiry">JobInquiryActivity</string>
+    <string name="title_activity_job_shortlist">JobShortlistActivity</string>
+    <string name="title_activity_applications">ApplicationsActivity</string>
+    <string name="title_activity_interviews">InterviewsActivity</string>
+    <string name="title_activity_rankings">RankingsActivity</string>
+    <string name="title_activity_work_report_evaluations">WorkReportEvaluationsActivity</string>
+
 </resources>
