@@ -7,5 +7,8 @@
          https://developer.android.com/design/patterns/navigation-drawer.html -->
     <dimen name="navigation_drawer_width">240dp</dimen>
     <dimen name="cardview_horizontal_padding">2pt</dimen>
-    <dimen name="cardview_vertical_padding">2pt</dimen>
+    <dimen name="cardview_vertical_padding">0pt</dimen>
+    <dimen name="job_card_title_text">16sp</dimen>
+    <dimen name="job_card_employer_text">14sp</dimen>
+    <dimen name="job_card_location_text">10sp</dimen>
 </resources>

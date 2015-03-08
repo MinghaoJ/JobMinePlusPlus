@@ -43,21 +43,21 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
         // - replace the contents of the view with that jobsData
 
         viewHolder.title.setText(jobsData.get(position).getTitle());
-        viewHolder.company.setText(jobsData.get(position).getEmployer());
+        viewHolder.employer.setText(jobsData.get(position).getEmployer());
         viewHolder.location.setText(jobsData.get(position).getLocation());
     }
 
     // inner class to hold a reference to each item of RecyclerView
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
-        TextView company;
+        TextView employer;
         TextView location;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
 
             title = (TextView)itemLayoutView.findViewById(R.id.textView_title);
-            company = (TextView)itemLayoutView.findViewById(R.id.textView_company);
+            employer = (TextView)itemLayoutView.findViewById(R.id.textView_employer);
             location = (TextView)itemLayoutView.findViewById(R.id.textView_location);
         }
     }

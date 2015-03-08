@@ -2,4 +2,7 @@
 <resources>
     <dimen name="cardview_horizontal_padding">6pt</dimen>
     <dimen name="cardview_vertical_padding">6pt</dimen>
+    <dimen name="job_card_title_text">22sp</dimen>
+    <dimen name="job_card_employer_text">18sp</dimen>
+    <dimen name="job_card_location_text">14sp</dimen>
 </resources>
