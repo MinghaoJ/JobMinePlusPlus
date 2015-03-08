@@ -1,6 +1,8 @@
 package ca.uwaterloo.jobmine.activities;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.prefs.Preferences;
+
 import ca.uwaterloo.jobmine.fragments.HomeFragment;
 import ca.uwaterloo.jobmine.fragments.JobInquiryFragment;
 import ca.uwaterloo.jobmine.fragments.NavigationDrawerFragment;
@@ -22,6 +26,8 @@ import ca.uwaterloo.jobmine.R;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         JobInquiryFragment.OnJobSelectedListener {
+
+    private static final int SIGN_IN_REQUEST = 1;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -38,6 +44,13 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences preferences = getPreferences(0);
+        if (preferences.getInt("auto_login", 0) == 0)
+        {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivityForResult(intent,SIGN_IN_REQUEST);
+        }
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -46,6 +59,16 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == SIGN_IN_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+            }
+        }
     }
 
     @Override
@@ -179,6 +202,7 @@ public class MainActivity extends ActionBarActivity
         public void onAttach(Activity activity) {
             super.onAttach(activity);
             ((MainActivity) activity).onSectionAttached(
+
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
