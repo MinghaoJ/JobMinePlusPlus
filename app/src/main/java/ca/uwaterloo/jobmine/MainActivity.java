@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, HomeFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -52,39 +52,20 @@ public class MainActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        Fragment fragment;
 
         switch (position) {
             case 0:
-
+                fragment = HomeFragment.newInstance("Test1", "test2");
                 break;
-            case 1:
-
-                break;
-            case 2:
-                //Home
-                break;
-            case 3:
-                //Home
-                break;
-            case 4:
-                //Home
-                break;
-            case 5:
-                //Home
-                break;
-            case 6:
-                //Home
-                break;
-            case 7:
-                //Home
-                break;
-            case 8:
-                //Home
+            default:
+                fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
         }
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
 
     public void onSectionAttached(int number) {
@@ -121,7 +102,6 @@ public class MainActivity extends ActionBarActivity
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
@@ -155,6 +135,10 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(String string){
+
+    }
 
     /**
      * A placeholder fragment containing a simple view.
