@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ca.uwaterloo.jobmine.models.Job;
+
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
@@ -16,40 +18,25 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<Job> ITEMS = new ArrayList<Job>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static Map<String, Job> ITEM_MAP = new HashMap<String, Job>();
 
     static {
-        // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        // Add sample items.
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
     }
 
-    private static void addItem(DummyItem item) {
-        ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class DummyItem {
-        public String id;
-        public String content;
-
-        public DummyItem(String id, String content) {
-            this.id = id;
-            this.content = content;
-        }
-
-        @Override
-        public String toString() {
-            return content;
-        }
+    private static void addJob(Job job) {
+        ITEMS.add(job);
+        ITEM_MAP.put(job.getId(), job);
     }
 }

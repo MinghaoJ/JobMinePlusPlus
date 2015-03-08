@@ -1,4 +1,4 @@
-package ca.uwaterloo.jobmine;
+package ca.uwaterloo.jobmine.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,11 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ca.uwaterloo.jobmine.fragments.HomeFragment;
+import ca.uwaterloo.jobmine.fragments.JobInquiryFragment;
+import ca.uwaterloo.jobmine.fragments.NavigationDrawerFragment;
+import ca.uwaterloo.jobmine.R;
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        HomeFragment.OnHomeItemSelectedListener,
         JobInquiryFragment.OnJobSelectedListener {
 
     /**
@@ -133,11 +136,6 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onHomeItemSelected(String id){
-
     }
 
     @Override
