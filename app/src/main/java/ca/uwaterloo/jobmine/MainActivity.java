@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.content.Intent;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,32 +55,65 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
+
+        switch (position) {
+            case 0:
+
+                break;
+            case 1:
+
+                break;
+            case 2:
+                //Home
+                break;
+            case 3:
+                //Home
+                break;
+            case 4:
+                //Home
+                break;
+            case 5:
+                //Home
+                break;
+            case 6:
+                //Home
+                break;
+            case 7:
+                //Home
+                break;
+            case 8:
+                //Home
+                break;
+        }
     }
 
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.app_name);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(R.string.title_section1);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(R.string.title_section2);
                 break;
             case 4:
-                mTitle = getString(R.string.title_section4);
+                mTitle = getString(R.string.title_section3);
                 break;
             case 5:
-                mTitle = getString(R.string.title_section5);
+                mTitle = getString(R.string.title_section4);
                 break;
             case 6:
-                mTitle = getString(R.string.title_section6);
+                mTitle = getString(R.string.title_section5);
                 break;
             case 7:
-                mTitle = getString(R.string.title_section7);
+                mTitle = getString(R.string.title_section6);
                 break;
             case 8:
+                mTitle = getString(R.string.title_section7);
+                break;
+            case 9:
                 mTitle = getString(R.string.title_section8);
                 break;
         }
@@ -120,6 +154,7 @@ public class MainActivity extends ActionBarActivity
 
         return super.onOptionsItemSelected(item);
     }
+
 
     /**
      * A placeholder fragment containing a simple view.

@@ -26,38 +26,6 @@
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
-        <activity
-            android:name=".StudentProfileActivity"
-            android:label="@string/title_activity_student_profile" >
-        </activity>
-        <activity
-            android:name=".DocumentsActivity"
-            android:label="@string/title_activity_documents" >
-        </activity>
-        <activity
-            android:name=".JobInquiryActivity"
-            android:label="@string/title_activity_job_inquiry" >
-        </activity>
-        <activity
-            android:name=".JobShortlistActivity"
-            android:label="@string/title_activity_job_shortlist" >
-        </activity>
-        <activity
-            android:name=".ApplicationsActivity"
-            android:label="@string/title_activity_applications" >
-        </activity>
-        <activity
-            android:name=".InterviewsActivity"
-            android:label="@string/title_activity_interviews" >
-        </activity>
-        <activity
-            android:name=".RankingsActivity"
-            android:label="@string/title_activity_rankings" >
-        </activity>
-        <activity
-            android:name=".WorkReportEvaluationsActivity"
-            android:label="@string/title_activity_work_report_evaluations" >
-        </activity>
     </application>
 
 </manifest>
