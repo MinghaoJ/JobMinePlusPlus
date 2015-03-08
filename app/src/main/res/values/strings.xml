@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">JobMine++</string>
+    <string name="home">Home</string>
     <string name="title_section1">Student Profile</string>
     <string name="title_section2">Documents</string>
     <string name="title_section3">Job Inquiry</string>
