@@ -25,6 +25,7 @@ import ca.uwaterloo.jobmine.data.SQLJobDatabaseOperations;
 import ca.uwaterloo.jobmine.dummy.DummyContent;
 import ca.uwaterloo.jobmine.fragments.HomeFragment;
 import ca.uwaterloo.jobmine.fragments.JobInquiryFragment;
+import ca.uwaterloo.jobmine.fragments.ShortListFragment;
 import ca.uwaterloo.jobmine.fragments.NavigationDrawerFragment;
 import ca.uwaterloo.jobmine.fragments.SettingsFragment;
 import ca.uwaterloo.jobmine.models.Job;
@@ -32,7 +33,8 @@ import ca.uwaterloo.jobmine.models.Job;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        JobInquiryFragment.OnJobSelectedListener {
+        JobInquiryFragment.OnJobSelectedListener,
+        ShortListFragment.OnJobSelectedListener {
 
     public SQLJobDatabaseOperations DB;
 
@@ -117,6 +119,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 3:
                 fragment = JobInquiryFragment.newInstance();
+                break;
+            case 4:
+                fragment = ShortListFragment.newInstance();
                 break;
             case 9:
                 fragment = SettingsFragment.newInstance();

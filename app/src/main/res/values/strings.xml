@@ -28,5 +28,6 @@
     <string name="title_activity_interviews">InterviewsActivity</string>
     <string name="title_activity_rankings">RankingsActivity</string>
     <string name="title_activity_work_report_evaluations">WorkReportEvaluationsActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -23,12 +23,12 @@ import ca.uwaterloo.jobmine.dummy.DummyContent;
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
  * <p/>
- * Activities containing this fragment MUST implement the {@link JobInquiryFragment.OnJobSelectedListener}
+ * Activities containing this fragment MUST implement the {@link ShortListFragment.OnJobSelectedListener}
  * interface.
  */
-public class JobInquiryFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class ShortListFragment extends Fragment implements AbsListView.OnItemClickListener {
 
-    private static final int SECTION_NUMBER = 4;
+    private static final int SECTION_NUMBER = 5;
 
     private OnJobSelectedListener mListener;
     private RecyclerView mRecyclerView;
@@ -36,8 +36,8 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
 
     private SQLJobDatabaseOperations db;
 
-    public static JobInquiryFragment newInstance() {
-        JobInquiryFragment fragment = new JobInquiryFragment();
+    public static ShortListFragment newInstance() {
+        ShortListFragment fragment = new ShortListFragment();
         return fragment;
     }
 
@@ -45,7 +45,7 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public JobInquiryFragment() {
+    public ShortListFragment() {
     }
 
     @Override
@@ -57,17 +57,15 @@ public class JobInquiryFragment extends Fragment implements AbsListView.OnItemCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_jobinquiry, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_short_list, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
         mRecyclerView.setLayoutManager(layoutManager);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final JobListAdapter adapter = new JobListAdapter(db.getJobList());
+                final JobListAdapter adapter = new JobListAdapter(db.searchJob("Toronto"));
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
