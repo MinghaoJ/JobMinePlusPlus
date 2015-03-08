@@ -28,7 +28,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
                                                    int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.job_card, null);
+                .inflate(R.layout.job_card, parent, false);
 
         // create ViewHolder
 

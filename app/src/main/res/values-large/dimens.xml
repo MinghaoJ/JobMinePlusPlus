@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cardview_horizontal_padding">6pt</dimen>
+    <dimen name="cardview_vertical_padding">6pt</dimen>
+</resources>
