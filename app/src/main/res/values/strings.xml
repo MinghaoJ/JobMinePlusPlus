@@ -11,6 +11,10 @@
     <string name="title_section6">Interviews</string>
     <string name="title_section7">Rankings</string>
     <string name="title_section8">Work Report Evaluations</string>
+    <string name="title_section9">Settings</string>
+    <string name="title_checkbox_preference">Auto login</string>
+    <string name="summary_checkbox_preference">Check to auto log in on startup</string>
+    <string name="inline_preferences">Login</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
