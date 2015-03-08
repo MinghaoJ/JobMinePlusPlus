@@ -5,23 +5,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Intent;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, HomeFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        HomeFragment.OnHomeItemSelectedListener,
+        JobInquiryFragment.OnJobSelectedListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -56,7 +52,10 @@ public class MainActivity extends ActionBarActivity
 
         switch (position) {
             case 0:
-                fragment = HomeFragment.newInstance("Test1", "test2");
+                fragment = HomeFragment.newInstance();
+                break;
+            case 3:
+                fragment = JobInquiryFragment.newInstance();
                 break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
@@ -136,7 +135,12 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public void onFragmentInteraction(String string){
+    public void onHomeItemSelected(String id){
+
+    }
+
+    @Override
+    public void onJobSelected(String id) {
 
     }
 

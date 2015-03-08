@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-
 import ca.uwaterloo.jobmine.dummy.DummyContent;
 
 /**
@@ -21,12 +20,12 @@ import ca.uwaterloo.jobmine.dummy.DummyContent;
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
  * <p/>
- * Activities containing this fragment MUST implement the {@link ca.uwaterloo.jobmine.HomeFragment.OnHomeItemSelectedListener}
+ * Activities containing this fragment MUST implement the {@link ca.uwaterloo.jobmine.JobInquiryFragment.OnJobSelectedListener}
  * interface.
  */
-public class HomeFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class JobInquiryFragment extends Fragment implements AbsListView.OnItemClickListener {
 
-    private OnHomeItemSelectedListener mListener;
+    private OnJobSelectedListener mListener;
 
     /**
      * The fragment's ListView/GridView.
@@ -39,8 +38,8 @@ public class HomeFragment extends Fragment implements AbsListView.OnItemClickLis
      */
     private ListAdapter mAdapter;
 
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+    public static JobInquiryFragment newInstance() {
+        JobInquiryFragment fragment = new JobInquiryFragment();
         return fragment;
     }
 
@@ -48,7 +47,7 @@ public class HomeFragment extends Fragment implements AbsListView.OnItemClickLis
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public HomeFragment() {
+    public JobInquiryFragment() {
     }
 
     @Override
@@ -79,10 +78,10 @@ public class HomeFragment extends Fragment implements AbsListView.OnItemClickLis
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnHomeItemSelectedListener) activity;
+            mListener = (OnJobSelectedListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHomeItemSelectedListener");
+                    + " must implement OnJobSelectedListener");
         }
     }
 
@@ -98,7 +97,7 @@ public class HomeFragment extends Fragment implements AbsListView.OnItemClickLis
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onHomeItemSelected(DummyContent.ITEMS.get(position).id);
+            mListener.onJobSelected(DummyContent.ITEMS.get(position).id);
         }
     }
 
@@ -125,9 +124,9 @@ public class HomeFragment extends Fragment implements AbsListView.OnItemClickLis
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnHomeItemSelectedListener {
+    public interface OnJobSelectedListener {
         // TODO: Update argument type and name
-        public void onHomeItemSelected(String id);
+        public void onJobSelected(String id);
     }
 
 }
