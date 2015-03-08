@@ -1,8 +1,6 @@
 package ca.uwaterloo.jobmine.activities;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,12 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.prefs.Preferences;
-
+import ca.uwaterloo.jobmine.R;
 import ca.uwaterloo.jobmine.fragments.HomeFragment;
 import ca.uwaterloo.jobmine.fragments.JobInquiryFragment;
 import ca.uwaterloo.jobmine.fragments.NavigationDrawerFragment;
-import ca.uwaterloo.jobmine.R;
 
 
 public class MainActivity extends ActionBarActivity
@@ -38,6 +34,7 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +52,22 @@ public class MainActivity extends ActionBarActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
+        addJobs();
+
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+    }
+
+    public void addJobs () {
+        SQLJobDatabaseOperations DB = new SQLJobDatabaseOperations(ctx);
+        DB.insertJob(DB, "000001", "Quality Assurance", "Github", "Silicon Valley", "Open", "238");
+        DB.insertJob(DB, "000002", "Software Developer", "Facebook", "California", "Open", "126");
+        DB.insertJob(DB, "000003", "Front End Developer", "Google", "California", "Open", "178");
+        DB.insertJob(DB, "000004", "Senior Worker", "Intel", "Toronto", "Open", "213");
+        DB.insertJob(DB, "000005", "Solutions Developer", "Blackberry", "Waterloo", "Open", "97");
+
     }
 
     @Override

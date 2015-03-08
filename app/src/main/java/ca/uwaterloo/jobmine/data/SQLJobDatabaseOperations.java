@@ -2,9 +2,13 @@ package ca.uwaterloo.jobmine.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ca.uwaterloo.jobmine.data.SQLJobDatabase.DatabaseListing;
 
@@ -16,7 +20,7 @@ public class SQLJobDatabaseOperations extends SQLiteOpenHelper {
     public static final int database_version = 1;
     public String CREATE_QUERY = "CREATE TABLE " + DatabaseListing.TABLE_NAME +
             "("+ DatabaseListing.JOB_ID + " TEXT,"+
-            DatabaseListing.JOB_NAME + " Text,"+
+            DatabaseListing.JOB_NAME + " TEXT,"+
             DatabaseListing.JOB_EMPLOYER + " TEXT,"+
             DatabaseListing.JOB_LOCATION + " TEXT,"+
             DatabaseListing.JOB_STATUS + " TEXT,"+
@@ -57,6 +61,27 @@ public class SQLJobDatabaseOperations extends SQLiteOpenHelper {
         long k = SQ.insert(DatabaseListing.TABLE_NAME, null, cv);
 
         Log.d("Database operations", "One job inserted into database");
+    }
+
+    public List getAllJobs (){
+        List joblist = new ArrayList<>();
+        String query = "SELECT * FROM " + DatabaseListing.TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery (query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                List listing = new List(cursor.getString(0), cursor.getString(1),
+                        new String[]{cursor.getString(2)},
+                        cursor.getInt(3),
+                        cursor.getInt(4),
+                        cursor.getInt(5));
+x
+                joblist.add(listing);
+            } while (cursor.moveToNext());
+        }
+
+        return joblist;
     }
 
 }
