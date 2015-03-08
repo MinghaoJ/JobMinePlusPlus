@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ca.uwaterloo.jobmine.R;
@@ -44,7 +43,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
         // - replace the contents of the view with that jobsData
 
         viewHolder.title.setText(jobsData.get(position).getTitle());
-        viewHolder.company.setText(jobsData.get(position).getCompany());
+        viewHolder.company.setText(jobsData.get(position).getEmployer());
         viewHolder.location.setText(jobsData.get(position).getLocation());
     }
 

@@ -14,7 +14,7 @@ public class SQLJobDatabase {
     public static abstract class DatabaseListing implements BaseColumns {
 
         public static final String JOB_ID = "job_id";
-        public static final String JOB_NAME = "job_name";
+        public static final String JOB_TITLE = "job_name";
         public static final String JOB_EMPLOYER = "job_employer";
         public static final String JOB_LOCATION = "job_location";
         public static final String JOB_STATUS = "job_status";

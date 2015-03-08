@@ -27,12 +27,15 @@ public class DummyContent {
 
     static {
         // Add sample items.
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
-        addJob(new Job("00000000", "Job Title", "Company Name", "Location"));
+        addJob(new Job("000001", "Quality Assurance", "Github", "Silicon Valley", "Open", "238"));
+        addJob(new Job("000002", "Software Developer", "Facebook", "California", "Open", "126"));
+        addJob(new Job("000003", "Front End Developer", "Google", "California", "Open", "178"));
+        addJob(new Job("000004", "Assistant Engineer", "Intel", "Toronto", "Open", "213"));
+        addJob(new Job("000005", "Solutions Developer", "Blackberry", "Waterloo", "Open", "97"));
+        addJob(new Job("000006", "Electrical Systems Design", "Toronto Transit Commission", "Toronto", "Open", "61"));
+        addJob(new Job("000007", "Junior Developer", "CBC", "Toronto", "Open", "52"));
+        addJob(new Job("000008", "Cashier", "McDonalds", "Kitchener", "Open", "1337"));
+        addJob(new Job("000008", "Chef", "Hard Rock Cafe", "Kitchener", "Open", "14"));
     }
 
     private static void addJob(Job job) {

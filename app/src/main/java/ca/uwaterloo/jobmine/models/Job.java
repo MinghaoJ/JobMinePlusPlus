@@ -6,28 +6,37 @@ package ca.uwaterloo.jobmine.models;
 public class Job {
     String id;
     String title;
-    String company;
+    String employer;
     String location;
+    String status;
+    String numapps;
 
-    public Job(String id, String title, String company, String location) {
+    public Job(String id, String title, String employer, String location, String status, String numapps) {
         this.id = id;
         this.title = title;
-        this.company = company;
+        this.employer = employer;
         this.location = location;
+        this.status = status;
+        this.numapps = numapps;
     }
 
     public String getId() {
         return id;
     }
+
     public String getTitle() {
         return title;
     }
 
-    public String getCompany() {
-        return company;
+    public String getEmployer() {
+        return employer;
     }
 
     public String getLocation() {
         return location;
     }
+
+    public String getStatus() { return status; }
+
+    public String getNumApps() { return numapps; }
 }
