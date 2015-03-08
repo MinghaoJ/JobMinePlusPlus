@@ -6,16 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-
 
 import ca.uwaterloo.jobmine.R;
 import ca.uwaterloo.jobmine.activities.MainActivity;
-import ca.uwaterloo.jobmine.dummy.DummyContent;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -42,7 +35,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_grid, container, false);
 
         return view;
     }
