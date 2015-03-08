@@ -1,16 +1,17 @@
 package ca.uwaterloo.jobmine.activities;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +34,8 @@ public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         JobInquiryFragment.OnJobSelectedListener {
 
+    public SQLJobDatabaseOperations DB;
+
     private static final int SIGN_IN_REQUEST = 1;
 
     /**
@@ -46,12 +49,12 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     Context ctx = this;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        clearDatabase();
         setContentView(R.layout.activity_main);
-
-
         SharedPreferences preferences = getPreferences(0);
         loadData();
         if (preferences.getBoolean("auto_login", false) == false)
@@ -72,6 +75,7 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
+
     private void loadData() {
         SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -79,7 +83,7 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void addDummyJobs() {
-        SQLJobDatabaseOperations DB = new SQLJobDatabaseOperations(ctx);
+        DB = new SQLJobDatabaseOperations(ctx);
         List jobList = DB.getJobList();
         for(Job job : DummyContent.ITEMS) {
             DB.insertJob(job);
@@ -94,6 +98,11 @@ public class MainActivity extends ActionBarActivity
             if (resultCode == RESULT_OK) {
             }
         }
+    }
+
+    protected void clearDatabase(){
+        ctx.deleteDatabase("job_info");
+        Log.d("Database operations", "DataBase Cleared");
     }
 
     @Override

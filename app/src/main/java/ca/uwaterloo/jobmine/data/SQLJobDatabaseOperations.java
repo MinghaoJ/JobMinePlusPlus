@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,12 +44,6 @@ public class SQLJobDatabaseOperations extends SQLiteOpenHelper {
 
     }
 
-    public SQLJobDatabaseOperations open() throws SQLException
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return this;
-    }
-
     //Insert a job into the database.
     public void insertJob(Job job) {
 
@@ -69,6 +62,7 @@ public class SQLJobDatabaseOperations extends SQLiteOpenHelper {
         Log.d("Database operations", "One job inserted into database");
 
     }
+
 
     public int getJobCount()
     {
